@@ -18,7 +18,7 @@ function displayUserLocation(){
                 
                 const userloc = {latitude, longitude};
                 
-                fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${userloc.latitude}&lon=${userloc.longitude}&appid=8f26ed1267745bf52f0077b38373c011`})
+                fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${userloc.latitude}&lon=${userloc.longitude}&appid=8f26ed1267745bf52f0077b38373c011`)
                     .then(res => res.json())
                     .then(data => {
                         document.getElementById("city").textContent = data[0].state || data[0].name;
