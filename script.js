@@ -18,7 +18,7 @@ function displayUserLocation(){
                 
                 const userloc = {latitude, longitude};
                 
-                fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${userloc.latitude}&lon=${userloc.longitude}&appid=8f26ed1267745bf52f0077b38373c011`, { cache: "force-cache" })
+                fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${userloc.latitude}&lon=${userloc.longitude}&appid=8f26ed1267745bf52f0077b38373c011`})
                     .then(res => res.json())
                     .then(data => {
                         document.getElementById("city").textContent = data[0].state || data[0].name;
@@ -43,7 +43,7 @@ function displayUserLocation(){
 
 function getCityWeather(){
     const location = document.getElementById("city").textContent;
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&lang=fr&appid=8f26ed1267745bf52f0077b38373c011&units=metric`, { cache: "force-cache" })
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&lang=fr&appid=8f26ed1267745bf52f0077b38373c011&units=metric`)
         .then(res => res.json())
         .then(data => {
             document.getElementById("temperature").textContent = `${data.main.temp}°C`;
@@ -69,7 +69,7 @@ function displayHourlyForecast(){
     const location = document.getElementById("city").textContent;
     const hForecastTab = document.getElementById("h-forecast");
     hForecastTab.innerHTML = ""; 
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&lang=fr&appid=8f26ed1267745bf52f0077b38373c011&units=metric`, { cache: "force-cache" })
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${location}&lang=fr&appid=8f26ed1267745bf52f0077b38373c011&units=metric`)
         .then(res => res.json())
         .then(data => {
             
